@@ -1,83 +1,87 @@
 $(document).ready(function () {
+  var currentQuestion = 0;
+  var correctAnswer = 0;
+  var incorrectAnswer = 0;
+  var unanswered;
+  var seconds;
+  var time;
+  var answered;
+  var userGuess;
 
-  // need the triva content
-  // need a timer
-  // need a gif for each correct/incorrect answer
-  // basically making a slide show
-  // need a game reset
-  // need a wins/losses tracker
-  // need the slides to change after each guess and the timer to reset
-  // want to be able to ask the user a question and track their answer
+  var startButton = $("#start-btn");
 
 
-  // Tracking variables
-  var wins = 0;
-  var losses = 0;
-  var correctGuess = 0;
-  var incorrectGuess = 0;
 
-  // timer variables - reset with every question
-  var questionTime = 10;
-  var count = 0;
 
-  var questionText = $("#question");
-  var answerAText = $("#answerA");
-  var answerBText = $("#answerB");
-  var answerCText = $("#answerC");
-  var correctText = $("#correct");
-  var wrongText = $("#wrong");
-  var imageText = $("#questionImage");
-  var timerText = $("#timer");
-
-  // need an array of objects for each question and asnwers
-  var questions = [
+  //array of objects for each question, answer and photo 
+  var triviaGame = [
     {
-      question: "What is the most ordered food in the U.S.",
-      // img: 
-      answerA: "Fried Chicken",
-      answerB: "Pizza",
-      answerC: "Cheeseburgers",
-      correctAnswer: "A"
+      question: "Top grossing movie of all time?",
+      answers: ["Avatar", "Titanic", "Avengers End Game", "Ironman 3"],
+      correct: 2,
+      photo: "assets/images/avengers.jpeg"
     },
     {
-      question: "In which State was Coca-Cola first sold",
-      // img: 
-      answerA: "Alabama",
-      answerB: "Georgia",
-      answerC: "New York",
-      correctAnswer: "B"
+      question: "'You can't handle the truth' is from what movie?",
+      answers: ["JFK", "A Few Good Men", "To Kill a Mockingbird", "Clear and Present Danger"],
+      correct: 1,
+      photo: "assets/images/aFewGoodMen.jpeg"
     },
     {
-      question: "Official State pie of Florida",
-      // img: 
-      answerA: "Peach Pie",
-      answerB: "Key Lime Pie",
-      answerC: "Cherry Pie",
-      correctAnswer: "B"
+      question: "What was the nick name of the mechanical shark in Jaws",
+      answers: ["Bob", "Tom", "Clyde", "Bruce"],
+      correct: 3,
+      photo: "assets/images/jaws.jpeg"
     },
     {
-      question: "Which American food item is rumored to survive a nuclear attack",
-      // img: 
-      answerA: "Zingers",
-      answerB: "Swiss Rolls",
-      answerC: "Twinkies",
-      correctAnswer: "C"
-    },
-    {
-      question: "Official State fruit of Utah",
-      // img: 
-      answerA: "Cherries",
-      answerB: "Apples",
-      answerC: "Peaches",
-      correctAnswer: "A"
+      question: "Whats the name of the hotel that's off limits to conduct business in John Wick",
+      answers: ["The Continental", "The Plaza", "Holiday Inn Express", "The Ritz Carlton"],
+      correct: 0,
+      photo: "assets/images/johnWick.jpeg"
     }
-
   ];
 
+  $(".trivia-area").hide();
+  $("#reset-btn").hide();
+
+  startButton.on("click", function () {
+    startButton.hide();
+    $(".trivia-area").show();
+    showQuestion();
+  });
+
+
+  // start game when start button is clicked. 
 
 
 
+  // functions that are needed to run game
 
+  // start game - use start btn
+  function startGame() {
+    // hide start button once its clicked
+    // show question container once start button is clicked
+    // should call next question
+    // nextQuestion()
+    // start timer??
+
+  };
+
+  function showQuestion() {
+    // this gets us the first question from the array
+    var selectedQuestion = triviaGame[currentQuestion];
+    $("#question").text(selectedQuestion.question);
+    for (var i = 0; i < selectedQuestion.answers.length; i++) {
+      // this gives each li and index number 
+      $("#options").append("<li id='" + i + "'>" + selectedQuestion.answers[i] + "</li>")
+    }
+    console.log('selectedQuestion', selectedQuestion);
+  }
+
+
+  function checkAnswer() {
+
+  }
 
 
 

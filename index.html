@@ -9,53 +9,36 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://kit.fontawesome.com/02403185ac.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-
-  <div class="jumbotron">
-    <h1 class="display-4">Food & Drink Trivia</h1>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
-      featured content or information.</p>
-    <hr class="my-4">
+  <h1>Movie Trivia</h1>
+  <div class="trivia-area">
+    <h2 id="question"></h2>
+    <ul id="options">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+  <div class="container">
+    <div id="time-left-text"></div>
+    <div id="question-area-text"></div>
+    <div id="answer-area-text"></div>
+    <button class="btn btn-success" id="start-btn">Start</button>
+    <button class="btn btn-success" id="reset-btn">Play Again??</button>
   </div>
 
 
-  <div class="container main">
-    <div class="container" id="timer">
-      <div class="row">
-        <div class="col">
-          0:00
-        </div>
-      </div>
-      <div id="triva">
-        <div id="question">
-          <div id="questionImage">
-            <button type="button" id="answerA" class="btn btn-success">Answer</button>
-            <button type="button" id="answerB" class="btn btn-success">Answer</button>
-            <button type="button" id="answerC" class="btn btn-success">Answer</button>
-          </div>
-          <div class="row">
-            <div class="col">
-              <h1 id="correct">Correct Answers:</h1>
-              <h1 id="wrong">Wrong Answers:</h1>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
 
   <nav class="navbar fixed-bottom navbar justify-content-center">
     <a class="navbar-brand nav-link copy" href="https://stacyholtz6.github.io/Bootstrap-Portfolio/">&copy;Stacy
       Holtz</a>
     <a class="nav-link" href="https://github.com/stacyholtz6"><i class="fab fa-github"></i></a>
   </nav>
-
-
-
-
-
 
 
 
