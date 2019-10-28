@@ -7,6 +7,7 @@ $(document).ready(function () {
   var time;
   var answered;
   var userGuess;
+  var selectedQuestion;
 
   var startButton = $("#start-btn");
 
@@ -44,15 +45,29 @@ $(document).ready(function () {
   $(".trivia-area").hide();
   $("#reset-btn").hide();
 
-  startButton.on("click", function () {
+  startButton.click(function () {
     startButton.hide();
     $(".trivia-area").show();
     showQuestion();
   });
 
+  $("#options").on("click", "li", function () {
+    $(".selected").removeClass("selected");
+    $(this).addClass("selected");
+  })
+
+  $("#submit").click(function () {
+    userGuess = parseInt($("li.selected").attr("id"));
+    checkAnswer(userGuess);
+    console.log('userGuess', userGuess);
+  });
 
   // start game when start button is clicked. 
 
+  // buttons inside of li's that can be clicked and checks answer - or radio buttons???? radio button = checked.
+
+  // right now index is a string - to compair answers
+  // parseInt()
 
 
   // functions that are needed to run game
@@ -69,8 +84,11 @@ $(document).ready(function () {
 
   function showQuestion() {
     // this gets us the first question from the array
-    var selectedQuestion = triviaGame[currentQuestion];
+    selectedQuestion = triviaGame[currentQuestion];
+    // this displays it in the html
     $("#question").text(selectedQuestion.question);
+    // clears the li's
+    $("#options").html("");
     for (var i = 0; i < selectedQuestion.answers.length; i++) {
       // this gives each li and index number 
       $("#options").append("<li id='" + i + "'>" + selectedQuestion.answers[i] + "</li>")
@@ -78,17 +96,17 @@ $(document).ready(function () {
     console.log('selectedQuestion', selectedQuestion);
   }
 
-
-  function checkAnswer() {
-
-  }
-
-
-
-
-
-
-
+// not working???
+  function checkAnswer(userGuess) {
+    // selectedQuestion = triviaGame[currentQuestion];
+    if (triviaGame.correct === userGuess) {
+      $("#correct").text(correctAnswer);
+      correctAnswer++;
+      console.log('correctAnswer', correctAnswer);
+    }
+    currentQuestion++;
+    showQuestion();
+  };
 
 
 })
