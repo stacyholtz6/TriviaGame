@@ -13,24 +13,34 @@
 </head>
 
 <body>
-  <h1>Movie Trivia</h1>
-  <div class="trivia-area">
-    <h2 id="question"></h2>
-    <ul id="options">
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul>
-    <button class="btn btn-danger" id="submit">submit</button>
+
+  <div class="jumbotron">
+    <h1 class="display-4">Movie Trivia</h1>
+    <p class="lead">Instructions go here.</p>
+    <button class="btn btn-danger" id="start-btn">Start</button>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <div id="timer-area"class="card-header">
+        Timer
+      </div>
+      <div class="card-title" id="timer">0:00</div>
+    </div>
   </div>
   <div class="container">
-    <div id="time-left-text"></div>
-    <div id="question-area-text"></div>
-    <div id="answer-area-text"></div>
-    <div id="correct"></div>
-    <button class="btn btn-success" id="start-btn">Start</button>
-    <button class="btn btn-success" id="reset-btn">Play Again??</button>
+    <div class="card" id="trivia-area">Trivia Area...I'd really like the questions and answers to go here.......</div>
+  </div>
+  <div class="container">
+    <button class="btn btn-success" id="submit">Submit</button>
+  </div>
+  <div class="container" id="score-area">
+    <div class="card">
+      <div class="card-header">
+        Final Score
+      </div>
+      <div class="card-title" id="score">You got 3 of 5 right</div>
+    </div>
   </div>
 
 
@@ -41,10 +51,6 @@
       Holtz</a>
     <a class="nav-link" href="https://github.com/stacyholtz6"><i class="fab fa-github"></i></a>
   </nav>
-
-
-
-
 
 
 
