@@ -1,12 +1,14 @@
-
 var gameTimer;
 var correct = 0;
 var incorrect = 0;
-var counter = 15;
-var triviaArea = $("#tivia-area");
+var counter = 20;
+var triviaArea = $("#trivia-area");
+var submitBtn = $("#submit");
+var scoreArea = $("#score-area");
 
+var clockRunning = false;
 
-//array of objects for each question, answer and photo 
+//array of objects for each question and answer
 var questions = [
   {
     question: "Top grossing movie of all time?",
@@ -31,67 +33,91 @@ var questions = [
   }
 ];
 
+$(document).ready(function () {
 
+  console.log(' submitBtn', submitBtn);
 
-$("#trivia-area").hide();
-$("#score-area").hide();
-
-$("#submit").on("click", function () {
-  $("#score-area").show();
   $("#trivia-area").hide();
-  $("#timer-area").hide();
-  $("#timer").hide();
-  $("#submit").hide();
-})
+  $("#score-area").hide();
 
-$("#start-btn").on("click", function () {
-  $("#start-btn").hide();
-  $("#trivia-area").show();
-})
+  $("#submit").on("click", function () {
+    submitAnswers();
+    console.log("helllooooooo");
+    $("#score-area").show();
+    $("#trivia-area").hide();
+    $("#timer-area").hide();
+    $("#timer").hide();
+    $("#submit").hide();
 
-startGame();
+  });
+
+  $("#start-btn").on("click", function () {
+    startTimer();
+    $("#start-btn").hide();
+    $("#trivia-area").show();
+  });
+
+
+  // starts time on click - but doesn't stop
+  // $("#start-btn").on("click", startTimer);
+
+  setQuestions();
+
+});
+
 function countDown() {
   counter--;
   $("#timer").html(counter);
   if (counter === 0) {
+    clearInterval(gameTimer);
     console.log("out of time");
-    submitAnswers();
-    completed();
+    alert("Sorry out of time, Game Over");
   }
 };
 
-function startGame() {
-  gameTimer = setInterval(countDown, 1000)
+
+function startTimer() {
+  if (!clockRunning) {
+    gameTimer = setInterval(countDown, 1000)
+    clockRunning = true;
+  }
+};
+
+// doesn't show questions with the options to select them
+function setQuestions() {
   for (var i = 0; i < questions.length; i++) {
-    triviaArea.text("<h2>" + questions[i].question + "</h2");
+    triviaArea.append("<h2>" + questions[i].question + "</h2");
     for (var j = 0; j < questions[i].answers.length; j++) {
-      triviaArea.text("<input type='radio' name='question-" + i +
+      triviaArea.append("<input type='radio' name='question-" + i +
         "' value='" + questions[i].answers[j] + "''>" + questions[i].answers[j]);
-        console.log('questions',questions);
+      console.log('questions', questions);
 
     }
   }
 }
 
 function submitAnswers() {
+  clearInterval(gameTimer);
   var inputs = triviaArea.children("input:checked");
+  console.log('inputs', inputs);
   for (var i = 0; i < inputs.length; i++) {
-    if ($(inputs[i]).val() === questions[i].correctAnswer) {
+    console.log('inputs[i].val()', inputs[i].value);
+    console.log(' questions[i].correctAnswer', questions[i].correctAnswer);
+    if (inputs[i].value === questions[i].correctAnswer) {
       correct++;
-      console.log('correct',correct);
+      console.log('correct', correct);
     } else {
       incorrect++;
-      console.log('incorrect',incorrect);
+      console.log('incorrect', incorrect);
     }
   }
   completed();
 };
 
 function completed() {
-  clearInterval(gameTimer);
-  triviaArea.text("Done!!");
-  triviaArea.text("Correct Answers: " + correct);
-  triviaArea.text("Incorrect Answers: " + incorrect);
+  scoreArea.append("Done!!");
+  scoreArea.append("Correct Answers: " + correct);
+  scoreArea.append("Incorrect Answers: " + incorrect);
 }
 
 // var gradeQuiz = $("#submitQuiz").on("click", function() {
