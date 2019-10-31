@@ -15,33 +15,35 @@
 <body>
 
   <div class="jumbotron">
-    <h1 class="display-4">Movie Trivia</h1>
-    <p class="lead">Instructions go here.</p>
-    <button class="btn btn-danger" id="start-btn">Start</button>
+    <h1 class="display-4 text-center">Movie Trivia</h1>
+    <p class="lead text-center">Instructions go here.</p>
+    <button class="btn btn-danger btn-block" id="start-btn">Start</button>
   </div>
 
-  <div class="container">
-    <div class="card">
-      <div id="timer-area" class="card-header">
-        Timer
+  <div class="main container">
+    <div class="container">
+      <div class="card">
+        <div id="timer-area" class="card-header text-center">
+          Timer
+        </div>
+        <div class="card-title text-center" id="timer">0:00</div>
       </div>
-      <div class="card-title" id="timer">0:00</div>
+    </div>
+    <div class="container">
+      <div class="card text-center" id="trivia-area"></div>
+    </div>
+    <div class="container">
+      <div class="btn btn-success btn-block" id="submit">Submit</div>
+    </div>
+    <div class="container score-summary">
+      <div class="card text-center" id="score-area">
+        <div class="card-header text-center">
+          <h2>Your score summary</h2>
+        </div>
+        <div class="card-title" id="score"></div>
+      </div>
     </div>
   </div>
-  <div class="container">
-    <div class="card" id="trivia-area"></div>
-  </div>
-  <div class="container">
-    <div class="btn btn-success" id="submit">Submit</div>
-  </div>
-  <div class="container" id="score-area">
-    <div class="card">
-      <div class="card-header">
-      </div>
-      <div class="card-title" id="score"></div>
-    </div>
-  </div>
-
   <!-- <nav class="navbar fixed-bottom navbar justify-content-center">
     <a class="navbar-brand nav-link copy" href="https://stacyholtz6.github.io/Bootstrap-Portfolio/">&copy;Stacy
       Holtz</a>

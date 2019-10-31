@@ -1,3 +1,22 @@
 body {
   background: url("../images/pow-star.png");
+  text-align: center;
 }
+
+.main {
+  margin-bottom: 80px;
+}
+
+h2 {
+  color: red;
+
+}
+
+input {
+  margin: auto;
+ 
+}
+
+/* #trivia-area {
+  position: relative;
+} */

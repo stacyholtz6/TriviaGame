@@ -5,6 +5,7 @@ var counter = 20;
 var triviaArea = $("#trivia-area");
 var submitBtn = $("#submit");
 var scoreArea = $("#score-area");
+var scoreSummary = $("#score-summary");
 
 var clockRunning = false;
 
@@ -75,7 +76,7 @@ function countDown() {
   }
 };
 
-
+// starts timer
 function startTimer() {
   if (!clockRunning) {
     gameTimer = setInterval(countDown, 1000)
@@ -83,7 +84,7 @@ function startTimer() {
   }
 };
 
-// doesn't show questions with the options to select them
+// shows questions with the options to select them
 function setQuestions() {
   for (var i = 0; i < questions.length; i++) {
     triviaArea.append("<h2>" + questions[i].question + "</h2");
@@ -96,6 +97,7 @@ function setQuestions() {
   }
 }
 
+// stops timer and checks question answers
 function submitAnswers() {
   clearInterval(gameTimer);
   var inputs = triviaArea.children("input:checked");
@@ -115,22 +117,12 @@ function submitAnswers() {
 };
 
 function completed() {
-  scoreArea.append("Done!!");
-  scoreArea.append("Correct Answers: " + correct);
-  scoreArea.append("Incorrect Answers: " + incorrect);
+  // scoreSummary.append("Done!!");
+  scoreArea.append("<h2>Correct Answers: " + correct + "</h2");
+  scoreArea.append("<h2>Incorrect Answers: " + incorrect + "</h2>");
 }
 
-// var gradeQuiz = $("#submitQuiz").on("click", function() {
-//   var correctAnswers = 0;
-//      var incorrectAnswers = 0;
-//      for (var i = 0; i < 10; i++) {
-//          if ($('input: + questions[i].name').val() === questions[i].correct) {
-//              correctAnswers++;
-//          } //end if statement
-//          else {
-//              incorrectAnswers++;
-//          };  //end else statement
-//      };  //end for loop
+
 
 
 
