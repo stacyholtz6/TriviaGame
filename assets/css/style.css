@@ -9,14 +9,37 @@ body {
 
 h2 {
   color: red;
+  background: lightblue;
+}
 
+.parent {
+  background: purple;
+  /* display: flex; */
+  /* flex-direction: column-reverse; */
+}
+
+#trivia-area {
+  display: flex;
+  background: yellow;
+  /* flex-direction: column; */
+  flex: 1;
 }
 
 input {
-  margin: auto;
- 
+  background: darkblue;
+  flex: 1;
+  /* flex-direction: row; */
+  /* margin-top: 50px; */
+
+  /* margin: auto; */
 }
 
-/* #trivia-area {
-  position: relative;
-} */
+span { 
+  flex: 1;
+  background: rgb(0, 139, 56);
+  /* flex-direction: row;  */
+  
+  /* padding: 50px; */
+ 
+
+}

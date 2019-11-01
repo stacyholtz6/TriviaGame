@@ -1,7 +1,7 @@
 var gameTimer;
 var correct = 0;
 var incorrect = 0;
-var counter = 20;
+var counter = 300;
 var triviaArea = $("#trivia-area");
 var submitBtn = $("#submit");
 var scoreArea = $("#score-area");
@@ -12,23 +12,23 @@ var clockRunning = false;
 //array of objects for each question and answer
 var questions = [
   {
-    question: "Top grossing movie of all time?",
+    question: "What is the top grossing movie of all time?",
     answers: ["Avatar", "Titanic", "Avengers End Game", "Ironman 3"],
     correctAnswer: "Titanic"
 
   },
   {
-    question: "'You can't handle the truth' is from what movie?",
+    question: "In which movie was the phrase, 'You can't handle the truth', said",
     answers: ["JFK", "A Few Good Men", "To Kill a Mockingbird", "Clear and Present Danger"],
     correctAnswer: "A Few Good Men"
   },
   {
-    question: "What was the nick name of the mechanical shark in Jaws",
+    question: "What was the nick name of the mechanical shark in in the movie Jaws",
     answers: ["Bob", "Tom", "Clyde", "Bruce"],
     correctAnswer: "Bruce"
   },
   {
-    question: "Whats the name of the hotel that's off limits to conduct business in John Wick",
+    question: 'In the movie, "John Wick", what is the name of the hotel that is essentially a safe zone for John and the other assassins',
     answers: ["The Continental", "The Plaza", "Holiday Inn Express", "The Ritz Carlton"],
     correctAnswer: "The Continental"
   }
@@ -36,20 +36,16 @@ var questions = [
 
 $(document).ready(function () {
 
-  console.log(' submitBtn', submitBtn);
-
   $("#trivia-area").hide();
   $("#score-area").hide();
 
   $("#submit").on("click", function () {
     submitAnswers();
-    console.log("helllooooooo");
     $("#score-area").show();
     $("#trivia-area").hide();
     $("#timer-area").hide();
     $("#timer").hide();
     $("#submit").hide();
-
   });
 
   $("#start-btn").on("click", function () {
@@ -59,20 +55,18 @@ $(document).ready(function () {
   });
 
 
-  // starts time on click - but doesn't stop
-  // $("#start-btn").on("click", startTimer);
-
   setQuestions();
 
 });
 
+// sets countdown
 function countDown() {
   counter--;
   $("#timer").html(counter);
   if (counter === 0) {
     clearInterval(gameTimer);
+    outOfTime();
     console.log("out of time");
-    alert("Sorry out of time, Game Over");
   }
 };
 
@@ -90,12 +84,15 @@ function setQuestions() {
     triviaArea.append("<h2>" + questions[i].question + "</h2");
     for (var j = 0; j < questions[i].answers.length; j++) {
       triviaArea.append("<input type='radio' name='question-" + i +
-        "' value='" + questions[i].answers[j] + "''>" + questions[i].answers[j]);
+        "' value='" + questions[i].answers[j] + "''>" + "<span>" + questions[i].answers[j] + "</span>");
       console.log('questions', questions);
 
     }
   }
 }
+// triviaArea.append("<div><input type=radio name=question-" + i +
+//         " value=" + questions[i].answers[j] + ">" + questions[i].answers[j] + "</div>");
+
 
 // stops timer and checks question answers
 function submitAnswers() {
@@ -117,12 +114,20 @@ function submitAnswers() {
 };
 
 function completed() {
-  // scoreSummary.append("Done!!");
   scoreArea.append("<h2>Correct Answers: " + correct + "</h2");
   scoreArea.append("<h2>Incorrect Answers: " + incorrect + "</h2>");
 }
 
-
+function outOfTime() {
+  $("#score-area").show();
+  $("#trivia-area").hide();
+  $("#timer-area").hide();
+  $("#timer").hide();
+  $("#submit").hide();
+  scoreArea.append("<h2> Out of Time! Game Over!!");
+  scoreArea.append("<h2>Correct Answers: " + correct + "</h2");
+  scoreArea.append("<h2>Incorrect Answers: " + incorrect + "</h2>");
+}
 
 
 
