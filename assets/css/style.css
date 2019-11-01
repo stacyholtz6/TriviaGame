@@ -8,25 +8,24 @@ body {
 }
 
 h2 {
-  color: red;
-  background: lightblue;
+  background: rgb(26, 127, 160);
 }
 
-.parent {
-  background: purple;
+
+/* .parent { */
+  /* background: purple; */
   /* display: flex; */
   /* flex-direction: column-reverse; */
-}
+/* } */
 
 #trivia-area {
   display: flex;
-  background: yellow;
+  /* background: yellow; */
   /* flex-direction: column; */
   flex: 1;
 }
 
 input {
-  background: darkblue;
   flex: 1;
   /* flex-direction: row; */
   /* margin-top: 50px; */

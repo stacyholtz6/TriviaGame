@@ -18,17 +18,17 @@ var questions = [
 
   },
   {
-    question: "In which movie was the phrase, 'You can't handle the truth', said",
+    question: 'The phrase, \"You can\'t handle the truth"\, is from what movie?',
     answers: ["JFK", "A Few Good Men", "To Kill a Mockingbird", "Clear and Present Danger"],
     correctAnswer: "A Few Good Men"
   },
   {
-    question: "What was the nick name of the mechanical shark in in the movie Jaws",
+    question: 'What was the nick name of the mechanical shark in in the movie, "Jaws"?',
     answers: ["Bob", "Tom", "Clyde", "Bruce"],
     correctAnswer: "Bruce"
   },
   {
-    question: 'In the movie, "John Wick", what is the name of the hotel that is essentially a safe zone for John and the other assassins',
+    question: 'In the movie, "John Wick", what is the name of the hotel that is essentially a safe zone for John and the other assassins?',
     answers: ["The Continental", "The Plaza", "Holiday Inn Express", "The Ritz Carlton"],
     correctAnswer: "The Continental"
   }
@@ -38,6 +38,9 @@ $(document).ready(function () {
 
   $("#trivia-area").hide();
   $("#score-area").hide();
+  $("#submit").hide();
+  $("#timer-area").hide();
+  $("#timer").hide();
 
   $("#submit").on("click", function () {
     submitAnswers();
@@ -52,6 +55,9 @@ $(document).ready(function () {
     startTimer();
     $("#start-btn").hide();
     $("#trivia-area").show();
+    $("#timer-area").show();
+    $("#timer").show();
+    $("#submit").show();
   });
 
 
@@ -90,8 +96,6 @@ function setQuestions() {
     }
   }
 }
-// triviaArea.append("<div><input type=radio name=question-" + i +
-//         " value=" + questions[i].answers[j] + ">" + questions[i].answers[j] + "</div>");
 
 
 // stops timer and checks question answers
@@ -114,8 +118,8 @@ function submitAnswers() {
 };
 
 function completed() {
-  scoreArea.append("<h2>Correct Answers: " + correct + "</h2");
-  scoreArea.append("<h2>Incorrect Answers: " + incorrect + "</h2>");
+  scoreArea.append("<h3>Correct Answers: " + correct + "</h3");
+  scoreArea.append("<h3>Incorrect Answers: " + incorrect + "</h3>");
 }
 
 function outOfTime() {
@@ -124,9 +128,9 @@ function outOfTime() {
   $("#timer-area").hide();
   $("#timer").hide();
   $("#submit").hide();
-  scoreArea.append("<h2> Out of Time! Game Over!!");
-  scoreArea.append("<h2>Correct Answers: " + correct + "</h2");
-  scoreArea.append("<h2>Incorrect Answers: " + incorrect + "</h2>");
+  scoreArea.append("<h3> Out of Time! Game Over!!</h3>");
+  scoreArea.append("<h3>Correct Answers: " + correct + "</h3");
+  scoreArea.append("<h3>Incorrect Answers: " + incorrect + "</h3>");
 }
 
 
