@@ -39,6 +39,7 @@ var questions = [
 ];
 
 $(document).ready(function () {
+  ;
 
   triviaArea.hide();
   scoreArea.hide();
@@ -46,26 +47,9 @@ $(document).ready(function () {
   timerArea.hide();
   timer.hide();
 
-  submitBtn.on("click", function () {
-    submitAnswers();
-    scoreArea.show();
-    triviaArea.hide();
-    timerArea.hide();
-    timer.hide();
-    submitBtn.hide();
-  });
+  submitBtn.on("click", submit);
 
-  startBtn.on("click", function () {
-    startTimer();
-    startBtn.hide();
-    triviaArea.show();
-    timerArea.show();
-    timer.show();
-    submitBtn.show();
-  });
-
-
-
+  startBtn.on("click", start);
 
   setQuestions();
 
@@ -101,6 +85,7 @@ function setQuestions() {
 
     }
   }
+
 }
 
 
@@ -126,7 +111,7 @@ function submitAnswers() {
 function completed() {
   scoreArea.append("<h2>Correct Answers: " + correct + "</h2");
   scoreArea.append("<h2>Incorrect Answers: " + incorrect + "</h2>");
-}
+};
 
 function outOfTime() {
   scoreArea.show();
@@ -137,7 +122,24 @@ function outOfTime() {
   scoreArea.append("<h2> Out of Time! Game Over!!</h2>");
   scoreArea.append("<h2>Correct Answers: " + correct + "</h2");
   scoreArea.append("<h2>Incorrect Answers: " + incorrect + "</h2>");
-}
+};
 
+function start() {
+  startTimer();
+  startBtn.hide();
+  triviaArea.show();
+  timerArea.show();
+  timer.show();
+  submitBtn.show();
+};
+
+function submit() {
+  submitAnswers();
+  scoreArea.show();
+  triviaArea.hide();
+  timerArea.hide();
+  timer.hide();
+  submitBtn.hide();
+}
 
 
