@@ -46,7 +46,6 @@ $(document).ready(function () {
   timerArea.hide();
   timer.hide();
 
-
   submitBtn.on("click", function () {
     submitAnswers();
     scoreArea.show();
