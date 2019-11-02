@@ -1,11 +1,15 @@
 var gameTimer;
 var correct = 0;
 var incorrect = 0;
-var counter = 300;
+var counter = 90;
 var triviaArea = $("#trivia-area");
 var submitBtn = $("#submit");
 var scoreArea = $("#score-area");
 var scoreSummary = $("#score-summary");
+var timerArea = $("#timer-area");
+var timer = $("#timer");
+var startBtn = $("#start-btn");
+
 
 var clockRunning = false;
 
@@ -36,29 +40,32 @@ var questions = [
 
 $(document).ready(function () {
 
-  $("#trivia-area").hide();
-  $("#score-area").hide();
-  $("#submit").hide();
-  $("#timer-area").hide();
-  $("#timer").hide();
+  triviaArea.hide();
+  scoreArea.hide();
+  submitBtn.hide();
+  timerArea.hide();
+  timer.hide();
 
-  $("#submit").on("click", function () {
+
+  submitBtn.on("click", function () {
     submitAnswers();
-    $("#score-area").show();
-    $("#trivia-area").hide();
-    $("#timer-area").hide();
-    $("#timer").hide();
-    $("#submit").hide();
+    scoreArea.show();
+    triviaArea.hide();
+    timerArea.hide();
+    timer.hide();
+    submitBtn.hide();
   });
 
-  $("#start-btn").on("click", function () {
+  startBtn.on("click", function () {
     startTimer();
-    $("#start-btn").hide();
-    $("#trivia-area").show();
-    $("#timer-area").show();
-    $("#timer").show();
-    $("#submit").show();
+    startBtn.hide();
+    triviaArea.show();
+    timerArea.show();
+    timer.show();
+    submitBtn.show();
   });
+
+
 
 
   setQuestions();
@@ -68,7 +75,7 @@ $(document).ready(function () {
 // sets countdown
 function countDown() {
   counter--;
-  $("#timer").html(counter);
+  timer.html(counter);
   if (counter === 0) {
     clearInterval(gameTimer);
     outOfTime();
@@ -87,10 +94,10 @@ function startTimer() {
 // shows questions with the options to select them
 function setQuestions() {
   for (var i = 0; i < questions.length; i++) {
-    triviaArea.append("<h2>" + questions[i].question + "</h2");
+    triviaArea.append("<h3>" + questions[i].question + "</h3");
     for (var j = 0; j < questions[i].answers.length; j++) {
-      triviaArea.append("<input type='radio' name='question-" + i +
-        "' value='" + questions[i].answers[j] + "''>" + questions[i].answers[j]);
+      triviaArea.append("<div class='checked'><input type='radio' name='question-" + i +
+        "' value='" + questions[i].answers[j] + "''>" + "<span class='word'>" + questions[i].answers[j] + "</span></div>");
       console.log('questions', questions);
 
     }
@@ -101,7 +108,7 @@ function setQuestions() {
 // stops timer and checks question answers
 function submitAnswers() {
   clearInterval(gameTimer);
-  var inputs = triviaArea.children("input:checked");
+  var inputs = $(".checked").children("input:checked");
   console.log('inputs', inputs);
   for (var i = 0; i < inputs.length; i++) {
     console.log('inputs[i].val()', inputs[i].value);
@@ -118,19 +125,19 @@ function submitAnswers() {
 };
 
 function completed() {
-  scoreArea.append("<h3>Correct Answers: " + correct + "</h3");
-  scoreArea.append("<h3>Incorrect Answers: " + incorrect + "</h3>");
+  scoreArea.append("<h2>Correct Answers: " + correct + "</h2");
+  scoreArea.append("<h2>Incorrect Answers: " + incorrect + "</h2>");
 }
 
 function outOfTime() {
-  $("#score-area").show();
-  $("#trivia-area").hide();
-  $("#timer-area").hide();
-  $("#timer").hide();
-  $("#submit").hide();
-  scoreArea.append("<h3> Out of Time! Game Over!!</h3>");
-  scoreArea.append("<h3>Correct Answers: " + correct + "</h3");
-  scoreArea.append("<h3>Incorrect Answers: " + incorrect + "</h3>");
+  scoreArea.show();
+  triviaArea.hide();
+  timerArea.hide();
+  timer.hide();
+  submitBtn.hide();
+  scoreArea.append("<h2> Out of Time! Game Over!!</h2>");
+  scoreArea.append("<h2>Correct Answers: " + correct + "</h2");
+  scoreArea.append("<h2>Incorrect Answers: " + incorrect + "</h2>");
 }
 
 

@@ -4,32 +4,36 @@ body {
 }
 
 .main {
-  margin-bottom: 80px;
+  margin-bottom: 90px;
 }
 
-h2 {
+h3 {
   background: rgb(26, 127, 160);
 }
 
-
-/* .parent { */
-  /* background: purple; */
-  /* display: flex; */
-  /* flex-direction: column-reverse; */
-/* } */
-
 #trivia-area {
   display: flex;
-  /* background: yellow; */
-  /* flex-direction: column; */
-  flex: 1;
+  padding: 20px;
+  
 }
 
-input {
-  flex: 1;
-  flex-direction: row;
-  /* margin-top: 50px; */
-
-  /* margin: auto; */
+#submit {
+  margin-top: 20px;
 }
 
+.word {
+  width: 10%;
+  margin-left: 10px;
+}
+.nav-link:hover {
+  color: #e600e6;
+}
+
+.fa-github {
+  font-size: 2rem;
+}
+
+.fa-github,
+.copy, .navbar {
+  color: rgb(227,227,227);
+}
