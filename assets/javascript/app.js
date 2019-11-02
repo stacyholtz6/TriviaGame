@@ -90,7 +90,7 @@ function setQuestions() {
     triviaArea.append("<h2>" + questions[i].question + "</h2");
     for (var j = 0; j < questions[i].answers.length; j++) {
       triviaArea.append("<input type='radio' name='question-" + i +
-        "' value='" + questions[i].answers[j] + "''>" + "<span>" + questions[i].answers[j] + "</span>");
+        "' value='" + questions[i].answers[j] + "''>" + questions[i].answers[j]);
       console.log('questions', questions);
 
     }
