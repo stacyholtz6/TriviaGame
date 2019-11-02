@@ -18,7 +18,7 @@ var questions = [
   {
     question: "What is the top grossing movie of all time?",
     answers: ["Avatar", "Titanic", "Avengers End Game", "Ironman 3"],
-    correctAnswer: "Titanic"
+    correctAnswer: "Avengers End Game"
 
   },
   {
