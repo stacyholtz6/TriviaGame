@@ -39,7 +39,6 @@ FUNCTIONALITY:
 ```
 - Once the start button is clicked the trivia questions, answer choices, timer and submit button are shown. The start button is hidden.
 ```
-![start](assets/images/start.png)
 ![trivia](assets/images/trivia.png)
 
 ###### Submit
