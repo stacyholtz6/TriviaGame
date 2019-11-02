@@ -1,7 +1,7 @@
 # TriviaGame
 
 ### Link to Live Game:
-[TriviaGame](https://stacyholtz6.github.io/TriviaGame/)
+[Trivia Game](https://stacyholtz6.github.io/TriviaGame/)
 
 ## Game Objective:
 ```
