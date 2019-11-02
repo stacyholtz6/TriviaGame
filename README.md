@@ -26,13 +26,18 @@
 ```
 FUNCTIONALITY:
 - Game instructions are shown.
-- Start button to be clicked with user is ready to play.
+- User clicks start button to begin game.
 ```
 #### Game Play Examples:
 
+```
+- Click start to begin
+```
+![start](assets/images/start.png)
+
 ###### Triva Area/Timer
 ```
-- Once the start button is clicked the trivi questions, answer choices, timer and submit button are shown. 
+- Once the start button is clicked the trivia questions, answer choices, timer and submit button are shown. The start button is hidden.
 ```
 ![start](assets/images/start.png)
 ![trivia](assets/images/trivia.png)
@@ -53,4 +58,4 @@ FUNCTIONALITY:
 ```
 - Your final score is shown after the submit button is clicked.  
 ```
-![winsLosses](assets/images/scoreSummary)
+![winsLosses](assets/images/scoreSummary.png)
