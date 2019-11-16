@@ -39,8 +39,7 @@ var questions = [
 ];
 
 $(document).ready(function () {
-  ;
-
+  
   triviaArea.hide();
   scoreArea.hide();
   submitBtn.hide();
