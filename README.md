@@ -33,13 +33,13 @@ FUNCTIONALITY:
 ```
 - Click start to begin
 ```
-![start](assets/Images/start.png)
+![start](assets/images/start.png)
 
 ###### Triva Area/Timer
 ```
 - Once the start button is clicked the trivia questions, answer choices, timer and submit button are shown. The start button is hidden.
 ```
-![trivia](assets/Images/trivia.png)
+![trivia](assets/images/trivia.png)
 
 ###### Submit
 ```
@@ -51,10 +51,10 @@ FUNCTIONALITY:
 ```
 - If you run out of time before you submit your answers the score summary is shown.
 ```
-![gameOver](assets/Images/outOfTime.gif)
+![gameOver](assets/images/outOfTime.gif)
 
 ###### Correct/incorrect tracking
 ```
 - Your final score is shown after the submit button is clicked.  
 ```
-![winsLosses](assets/Images/scoreSummary.png)
+![winsLosses](assets/images/scoreSummary.png)
